@@ -51,7 +51,50 @@ import com.example.firstapps.databinding.ActivitySpinnerProgressBarBinding
           override fun onStartTrackingTouch(seekBar: SeekBar?) {}
           override fun onStopTrackingTouch(seekBar: SeekBar?) {}
       })
+      showToast("On Create ")
     }
 
+     override fun onStart() {
+         super.onStart()
+         showToast("On Start")
 
+     }
+
+     override fun onResume() {
+         super.onResume()
+         showToast("On Resume ")
+
+     }
+
+     override fun onPause() {
+         super.onPause()
+         showToast("On Pause ")
+
+     }
+
+     override fun onStop() {
+         super.onStop()
+         showToast("On Stop ")
+
+     }
+
+     override fun onDestroy() {
+         super.onDestroy()
+         showToast("On Destroy ")
+
+     }
+    private fun showToast(name : String)
+     {
+        Toast.makeText(this,name, Toast.LENGTH_LONG).show()
+    }
  }
+
+
+
+
+
+
+
+
+
+
