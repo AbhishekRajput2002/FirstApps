@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +17,10 @@
         android:theme="@style/Theme.FirstApps"
         tools:targetApi="31">
         <activity
-            android:name=".IntentActivity"
+            android:name=".navigation.NavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".fragment.DemoFragmentActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,28 +29,57 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".broadcast.BroadcastReceiverActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".BackgroundServiceActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".intent_and_data_passing.IntentPassingData"
+            android:exported="false" />
+        <activity
+            android:name=".intent_and_data_passing.BundlePassingActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".IntentActivity"
+            android:exported="true" />
+        <activity
             android:name=".RecycleViewActivity"
             android:exported="false" />
         <activity
             android:name=".SingleListViewItem"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".AutoCompleteTextAndCardView"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".SpinnerProgressBar"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ViewDemoActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
+        <service
+            android:name=".service.ForegroundService"
+            android:exported="true"
+            android:foregroundServiceType="mediaPlayback" />
+
+        <receiver
+            android:name=".broadcast.MyBroadCastReceiver"
+            android:exported="true">
+
+            <!--
+                <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE_CHANGED" />
+            </intent-filter>
+            -->
+            <intent-filter>
+                <action android:name="com.example.firstapps.broadcast.MyBroadCastReceiver_NOTIFICATION" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
