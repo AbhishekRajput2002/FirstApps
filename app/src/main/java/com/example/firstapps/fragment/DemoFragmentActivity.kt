@@ -7,12 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.firstapps.R
 import com.example.firstapps.databinding.ActivityDemoFragmentBinding
 
 class DemoFragmentActivity : AppCompatActivity(), SyncDataWithActivity {
     private lateinit var binding: ActivityDemoFragmentBinding
-    var demoFragment = DemoFragment()
+  //  var demoFragment = DemoFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -24,7 +25,7 @@ class DemoFragmentActivity : AppCompatActivity(), SyncDataWithActivity {
             insets
         }
 
-    //  addFragment(DemoFragment())
+        //  addFragment(DemoFragment())
         addAllFragment()
     }
 
@@ -33,10 +34,10 @@ class DemoFragmentActivity : AppCompatActivity(), SyncDataWithActivity {
             .add(R.id.fragmentlayout, fragment)
             .addToBackStack(null)
             .commit()
-        demoFragment.setSyncData(this)
 
     }
-    private fun  addAllFragment(){
+
+    private fun addAllFragment() {
         binding.btndemo.setOnClickListener {
             addFragment(DemoFragment())
         }
@@ -55,5 +56,6 @@ class DemoFragmentActivity : AppCompatActivity(), SyncDataWithActivity {
     override fun syncData() {
         Toast.makeText(this, "Data Synced", Toast.LENGTH_SHORT).show()
     }
+
 
 }

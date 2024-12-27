@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/my_nav_graph"
+    android:id="@+id/nav_graph"
     app:startDestination="@id/demoFragment">
 
     <fragment
@@ -30,9 +30,22 @@
         android:id="@+id/secondFragment"
         android:name="com.example.firstapps.fragment.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" >
+        tools:layout="@layout/fragment_second">
         <action
             android:id="@+id/action_secondFragment_to_demoFragment"
             app:destination="@id/demoFragment" />
+        <argument
+            android:name="username"
+            android:defaultValue="not found"
+            app:argType="string"
+            app:nullable="true" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.nav.com/ab" />
     </fragment>
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.example.firstapps.fragment.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" /><action android:id="@+id/action_global_settingFragment" app:destination="@id/settingFragment"/>
 </navigation>

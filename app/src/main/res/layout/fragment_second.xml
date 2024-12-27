@@ -13,6 +13,14 @@
         android:textColor="@color/white"
         android:textSize="32sp"
         android:gravity="center"
-        android:background="#EF9C82"/>
-
+        android:background="#D94577"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/username"
+        android:text="User Name"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:background="#D94577"/>
 </FrameLayout>
